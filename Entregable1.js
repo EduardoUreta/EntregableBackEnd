@@ -202,10 +202,10 @@ const operations = async () => {
     const manager = new ProductManager("./productos.json");
 
     try {     
-        // await manager.addProduct("Telefono", "Celular", 1990, "imagen.com", 700, 5);
-        // await manager.addProduct("Libro", "Aventuras", 2990, "imagen.com", 980, 5);
-        // await manager.addProduct("Planta", "Carnívora", 2990, "imagen.com", 910, 5);
-        // await manager.addProduct("Eliminaré", "Eliminaré", 2990, "eliminare.com", 123456789, 5);
+        await manager.addProduct("Telefono", "Celular", 1990, "imagen.com", 700, 5);
+        await manager.addProduct("Libro", "Aventuras", 2990, "imagen.com", 980, 5);
+        await manager.addProduct("Planta", "Carnívora", 2990, "imagen.com", 910, 5);
+        await manager.addProduct("Eliminaré", "Eliminaré", 2990, "eliminare.com", 123456789, 5);
 
         // console.log("Detalle de Productos: ");
         // console.log(await manager.getProducts());
