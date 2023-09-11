@@ -108,49 +108,7 @@ export class CartManager{
                     if (existingProduct) {
                         // Incrementar la cantidad del producto
                         existingProduct.quantity += 1;
-                    } else {
-                        // Agregar un nuevo producto al carrito
-                        const newProduct = {
-                            idProduct: productId,
-                            quantity: 1,
-                        };
-                        cart.products.push(newProduct);
-                    }
-    
-                    // Escribir los cambios en el archivo
-                    await fs.promises.writeFile(this.filePath, JSON.stringify(carts, null, '\t'));
-    
-                    return `Se agregó el producto al carrito ${cartId}`;
-                } else {
-                    return `No se encontró el carrito con el ID ${cartId}`;
-                }
-            } else {
-                throw new Error("No se pudo agregar el producto al carrito");
-            }
-        } catch (error) {
-            console.log(error.message);
-            throw error;
-        }
-    };
-    async addProductInCart(cartId, productId) {
-        try {
-            if (this.fileExist()) {
-                // Leer el archivo
-                const contenido = await fs.promises.readFile(this.filePath, "utf-8");
-    
-                // Transformar JSON a objeto
-                const carts = JSON.parse(contenido);
-    
-                // Encontrar el carrito correspondiente por su ID
-                const cart = carts.find((item) => item.idCart === cartId);
-    
-                if (cart) {
-                    // Verificar si el producto ya existe en el carrito
-                    const productExists = cart.products.find((product) => product.idProduct === productId);
-    
-                    if (productExists) {
-                        // Incrementar la cantidad del producto
-                        productExists.quantity += 1;
+                        console.log("Se aumentó en 1 la cantidad");
                     } else {
                         // Agregar un nuevo producto al carrito
                         const newProduct = {
