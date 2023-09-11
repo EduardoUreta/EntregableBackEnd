@@ -1,6 +1,6 @@
 [
 	{
-		"idEvent": 1,
+		"idProduct": 1,
 		"title": "Telefono",
 		"description": "Celular",
 		"price": 1990,
@@ -9,7 +9,7 @@
 		"stock": 5
 	},
 	{
-		"idEvent": 2,
+		"idProduct": 2,
 		"title": "Libro",
 		"description": "Aventuras",
 		"price": 2990,
@@ -18,7 +18,7 @@
 		"stock": 5
 	},
 	{
-		"idEvent": 3,
+		"idProduct": 3,
 		"title": "Planta",
 		"description": "Carnívora",
 		"price": 2990,
@@ -27,12 +27,39 @@
 		"stock": 5
 	},
 	{
-		"idEvent": 4,
+		"idProduct": 4,
 		"title": "Eliminaré",
 		"description": "Eliminaré",
 		"price": 2990,
 		"thumbnail": "eliminare.com",
 		"code": 123456789,
+		"stock": 5
+	},
+	{
+		"idProduct": 5,
+		"title": "Notebook",
+		"description": "Computador",
+		"price": 239990,
+		"thumbnail": "eliminare.com",
+		"code": 174,
+		"stock": 5
+	},
+	{
+		"idProduct": 6,
+		"title": "Sopaipillas",
+		"description": "Frescas",
+		"price": 350,
+		"thumbnail": "eliminare.com",
+		"code": 951,
+		"stock": 5
+	},
+	{
+		"idProduct": 7,
+		"title": "Prueba",
+		"description": "Veamos",
+		"price": 1990,
+		"thumbnail": "imagen.com",
+		"code": 973155,
 		"stock": 5
 	}
 ]

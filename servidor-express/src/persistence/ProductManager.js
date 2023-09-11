@@ -24,9 +24,9 @@ export class ProductManager{
                     // Si no hay titulo, ni descripcion y etc, retorna un mensaje y hasta ahí llega
                     return console.log("Todos los campos son obligatorios")
                 } else {
-                    // Declarar idEvent y gestionar su valor
-                    let idEvent;
-                    contenidoJsonEnString.length === 0 ? idEvent = 1 : idEvent = contenidoJsonEnString.length + 1
+                    // Declarar idProduct y gestionar su valor
+                    let idProduct;
+                    contenidoJsonEnString.length === 0 ? idProduct = 1 : idProduct = contenidoJsonEnString.length + 1
         
                     // Si se cumple, avanza y evalua si el codigo ya existe en el array products
                     const codeExists = contenidoJsonEnString.find((item) => item.code === code);
@@ -36,7 +36,7 @@ export class ProductManager{
                     } else {
                         // Como el código no se repite, creará producto
                         const newProduct = {
-                            idEvent,
+                            idProduct,
                             title,
                             description,
                             price,
@@ -49,7 +49,7 @@ export class ProductManager{
                     console.log(`El producto ${newProduct.title} ha sido agregado`);
 
                     // Transformar de string a JSON
-                    await fs.promises.writeFile(rutaArchivo,JSON.stringify(contenidoJsonEnString, null, "\t"));
+                    await fs.promises.writeFile(this.filePath,JSON.stringify(contenidoJsonEnString, null, "\t"));
                     console.log("Producto agregado");
                     };
                 };
@@ -137,9 +137,11 @@ export class ProductManager{
                     const idExists = contenidoJsonEnString.find((item) => item.idEvent === idEvent);
                     // Evalua si el codigo ya existe en el array products
                     const codeExists = contenidoJsonEnString.find((item) => item.code === code);
+                    // Codigo Original
+                    const originalCode = codeExists.code
 
-                    // Si encuentra el ID y el codigo no existe, actualizará el producto
-                    if(idExists && !codeExists){
+                    // Si encuentra el ID y el codigo no existe o es igual al codigo original, actualizará el producto
+                    if(idExists && (!codeExists || code === originalCode)){
                         const updateProduct = {
                             idEvent,
                             title,
@@ -154,7 +156,7 @@ export class ProductManager{
                     console.log(`El producto ${updateProduct.title} ha sido actualizado`);
 
                     // Transformar de string a JSON
-                    await fs.promises.writeFile(rutaArchivo,JSON.stringify(contenidoJsonEnString, null, "\t"));
+                    await fs.promises.writeFile(this.filePath,JSON.stringify(contenidoJsonEnString, null, "\t"));
                     } else {
                         console.log("Lo siento, la ID no existe y/o el código ya existe");
                     };
@@ -181,7 +183,7 @@ export class ProductManager{
                     console.log(`El producto ${idEvent} ha sido eliminado`);
 
                     // Transformar de string a JSON
-                    await fs.promises.writeFile(rutaArchivo,JSON.stringify(contenidoJsonEnString, null, "\t"));
+                    await fs.promises.writeFile(this.filePath, JSON.stringify(contenidoJsonEnString, null, "\t"));
                 } else {
                     console.log(`No se encuentra la id ${idEvent}`);
                 };
