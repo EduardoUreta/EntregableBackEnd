@@ -1,0 +1,31 @@
+<h1>Productos Tiempo Real</h1>
+
+<h2>Formulario Agregar Productos</h2>
+<form id="createProductForm" enctype="multipart/form-data">
+    <input type="text" placeholder="Nombre del producto" name="title"/>
+    <br></br>
+    <input type="text" placeholder="Descripcion del producto" name="description"/>  
+    <br></br>
+    <input type="number" placeholder="Precio del producto" name="price"/>
+    <br></br>
+    <input type="file" placeholder="Imagen del producto" name="thumbnail"/>
+    <br></br>
+    <input type="number" placeholder="Código del producto" name="code"/>
+    <br></br>
+    <input type="number" placeholder="Stock del producto" name="stock"/>
+    <br></br>
+    <button type="submit">Agregar Producto</button>
+</form>
+
+<hr>
+
+{{!-- Mostrar los productos del realTime.js que vienen desde la app.js --}}
+<h2>Listado de Productos</h2>
+
+<div id="productList">
+
+</div>
+
+{{!-- Agregar WebSocket en el Front --}}
+<script src="socket.io/socket.io.js"></script>
+<script src="js/realtime.js"></script>

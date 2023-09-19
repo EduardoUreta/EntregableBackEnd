@@ -1,0 +1,16 @@
+<h1>Home</h1>
+<h3>Listado de todos los productos agregados hasta el momento</h3>
+
+{{!-- Hacer un recorrido de getProducts --}}
+
+{{#each products}}
+    <div>
+        <h5>Nombre del producto: {{this.title}}</h5>
+        <h5>Descripción del producto: {{this.description}}</h5>
+        <h5>Precio del producto: {{this.price}}</h5>
+        <h5>Thumbnail del producto: {{this.thumbnail}}</h5>
+        <h5>Codigo del producto: {{this.code}}</h5>
+        <h5>Stock del producto: {{this.stock}}</h5>
+        <br>
+    </div>
+{{/each}}
